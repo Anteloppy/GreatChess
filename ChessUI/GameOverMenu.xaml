@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="Chess_UI.GameOverMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Chess_UI"
+             mc:Ignorable="d" 
+             d:DesignHeight="150" d:DesignWidth="350">
+    <UserControl.Resources>
+        <Style TargetType="Button">
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+    </UserControl.Resources>
+    <Border Width="275" Height="125" Background="#AA000000" BorderBrush="#E10600" BorderThickness="2" CornerRadius="10">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.ColumnSpan="2" x:Name="WinnerText" Text="WINNER TEXT" Foreground="#E10600" FontSize="28" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Arial Narrow"/>
+            <TextBlock Grid.Row="1" Grid.ColumnSpan="2" x:Name="ReasonText" Text="REASON TEXT" Foreground="#E10600" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Arial Narrow"/>
+
+            <Button Grid.Row="2" Content="RESTART" Width="80" Height="30" Background="Black" Foreground="#E10600" BorderBrush="#E10600" FontFamily="Arial Narrow" FontSize="14" Click="Restart_Click" BorderThickness="2"/>
+            <Button Grid.Row="2" Grid.Column="1" Content="EXIT" Width="80" Height="30" Background="Black" Foreground="#E10600" BorderBrush="#E10600" FontFamily="Arial Narrow" FontSize="14" Click="Exit_Click" BorderThickness="2"/>
+        </Grid>
+    </Border>
+</UserControl>

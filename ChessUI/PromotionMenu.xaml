@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="Chess_UI.PromotionMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Chess_UI"
+             mc:Ignorable="d" 
+             d:DesignHeight="150" d:DesignWidth="350">
+    <Border Width="275" Height="125" Background="#AA000000" BorderBrush="#E10600" BorderThickness="2" CornerRadius="10">
+        <Grid RenderOptions.BitmapScalingMode="HighQuality">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="1.5*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.ColumnSpan="2" x:Name="WinnerText" Text="SELECT A PIECE" Foreground="#E10600" FontSize="28" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Arial Narrow"/>
+
+            <UniformGrid Grid.Row="1" Columns="4" Cursor="Hand" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Image x:Name="QueenImg" Source="/Assets/red_queen.png" MouseDown="QueenImg_MouseDown"/>
+                <Image x:Name="BishopImg" Source="/Assets/red_bishop.png" MouseDown="BishopImg_MouseDown"/>
+                <Image x:Name="KnightImg" Source="/Assets/red_knight.png" MouseDown="KnightImg_MouseDown"/>
+                <Image x:Name="RookImg" Source="/Assets/red_rook.png" MouseDown="RookImg_MouseDown"/>
+            </UniformGrid>
+        </Grid>
+    </Border>
+</UserControl>
