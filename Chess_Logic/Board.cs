@@ -4,11 +4,11 @@
     {
         private readonly Piece[,] pieces = new Piece[8,8];
 
-        private readonly Dictionary<Player, Position> pawnSkipPositions = new Dictionary<Player, Position>
-        {
-            { Player.Red, null },
-            { Player.Black, null }
-        };
+        //private readonly Dictionary<Player, Position> pawnSkipPositions = new Dictionary<Player, Position>
+        //{
+        //    { Player.Red, null },
+        //    { Player.Black, null }
+        //};
 
 
         public Piece this[int row, int col]
@@ -23,15 +23,15 @@
             set { this[pos.Row, pos.Column] = value;}
         }
 
-        public Position GetPawnSkipPosition(Player player)
-        {
-            return pawnSkipPositions[player];
-        }
+        //public Position GetPawnSkipPosition(Player player)
+        //{
+        //    return pawnSkipPositions[player];
+        //}
 
-        public void SetPawnSkipPosition(Player player, Position pos)
-        {
-            pawnSkipPositions[player] = pos;
-        }
+        //public void SetPawnSkipPosition(Player player, Position pos)
+        //{
+        //    pawnSkipPositions[player] = pos;
+        //}
 
         public static Board Initial()
         {
@@ -210,31 +210,31 @@
                 if (piece == null || piece.Color != player || piece.Type != PieceType.Pawn)
                     continue;
 
-                EnPassant move = new EnPassant(pos, skipPos);
-                if (move.IsLegal(this))
-                    return true;
+                //EnPassant move = new EnPassant(pos, skipPos);
+                //if (move.IsLegal(this))
+                    //return true;
             }
 
             return false;
         }
 
-        public bool CanCaptureEnPassant(Player player)
-        {
-            Position skipPos = GetPawnSkipPosition(player.Opponent());
+        //public bool CanCaptureEnPassant(Player player)
+        //{
+        //    Position skipPos = GetPawnSkipPosition(player.Opponent());
 
-            if (skipPos == null)
-                return false;
+        //    if (skipPos == null)
+        //        return false;
 
-            Position[] pawnPositions;
+        //    Position[] pawnPositions;
 
-            switch (player)
-            {
-                case Player.Red: pawnPositions = new Position[] { skipPos + Direction.SouthEast, skipPos + Direction.SouthWest }; break;
-                case Player.Black: pawnPositions = new Position[] { skipPos + Direction.NorthEast, skipPos + Direction.NorthWest }; break;
-                default: pawnPositions = Array.Empty<Position>(); break;
-            }
+        //    switch (player)
+        //    {
+        //        case Player.Red: pawnPositions = new Position[] { skipPos + Direction.SouthEast, skipPos + Direction.SouthWest }; break;
+        //        case Player.Black: pawnPositions = new Position[] { skipPos + Direction.NorthEast, skipPos + Direction.NorthWest }; break;
+        //        default: pawnPositions = Array.Empty<Position>(); break;
+        //    }
 
-            return HasPawnInPosition(player, pawnPositions, skipPos);
-        }
+        //    return HasPawnInPosition(player, pawnPositions, skipPos);
+        //}
     }
 }

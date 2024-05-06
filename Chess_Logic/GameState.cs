@@ -32,7 +32,7 @@
 
         public void MakeMove(Move move)
         {
-            Board.SetPawnSkipPosition(CurrentPlayer, null);
+            //Board.SetPawnSkipPosition(CurrentPlayer, null);
             bool captureOrPawn = move.Execute(Board);
 
             if (captureOrPawn)

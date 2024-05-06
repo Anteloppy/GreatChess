@@ -6,7 +6,7 @@
         CastleKS,
         CastleQS,
         DoublePawn,
-        EnPassant,
+        //EnPassant,
         PawnPromotion
     }
 }

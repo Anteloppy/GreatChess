@@ -14,7 +14,7 @@ namespace Chess_Logic
             sb.Append(' ');
             AddCastlingRights(board);
             sb.Append(' ');
-            AddEnPassant(board, currentPlayer);
+            //AddEnPassant(board, currentPlayer);
         }
 
         public override string ToString()
@@ -110,19 +110,19 @@ namespace Chess_Logic
                 sb.Append('q');
         }
 
-        private void AddEnPassant(Board board, Player currentPlayer)
-        {
-            if (!board.CanCaptureEnPassant(currentPlayer))
-            {
-                sb.Append('-');
-                return;
-            }
+        //private void AddEnPassant(Board board, Player currentPlayer)
+        //{
+        //    if (!board.CanCaptureEnPassant(currentPlayer))
+        //    {
+        //        sb.Append('-');
+        //        return;
+        //    }
 
-            Position pos = board.GetPawnSkipPosition(currentPlayer.Opponent());
-            char file = (char)('a' + pos.Column);
-            int rank = 8 - pos.Row;
-            sb.Append(file);
-            sb.Append(rank);
-        }
+        //    Position pos = board.GetPawnSkipPosition(currentPlayer.Opponent());
+        //    char file = (char)('a' + pos.Column);
+        //    int rank = 8 - pos.Row;
+        //    sb.Append(file);
+        //    sb.Append(rank);
+        //}
     }
 }

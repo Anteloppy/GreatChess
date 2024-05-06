@@ -72,15 +72,16 @@ namespace Chess_Logic
             {
                 Position to = from + forward + dir;
 
-                if (to == board.GetPawnSkipPosition(Color.Opponent()))
-                    yield return new EnPassant(from, to);
-                else if (CanMoveTo(to, board))
+                //if (to == board.GetPawnSkipPosition(Color.Opponent()))
+                //    yield return new EnPassant(from, to);
+                //else
+                if (CanMoveTo(to, board))
                 {
                     if (to.Row == 0 || to.Row == 7)
                         foreach (Move promMove in PromotionMoves(from, to))
                             yield return promMove;
-                    else
-                        yield return new NormalMove(from, to);
+                    //else
+                    //    yield return new NormalMove(from, to);
                 }
             }
         }
@@ -90,13 +91,13 @@ namespace Chess_Logic
             return ForwardMoves(from, board).Concat(DiagonalMoves(from, board));
         }
 
-        public override bool CanCaptureOpponentKing(Position from, Board board)
-        {
-            return DiagonalMoves(from, board).Any(move =>
-            {
-                Piece piece = board[move.ToPos];
-                return piece != null && piece.Type == PieceType.King;
-            });
-        }
+        //public override bool CanCaptureOpponentKing(Position from, Board board)
+        //{
+        //    return DiagonalMoves(from, board).Any(move =>
+        //    {
+        //        Piece piece = board[move.ToPos];
+        //        return piece != null && piece.Type == PieceType.King;
+        //    });
+        //}
     }
 }
